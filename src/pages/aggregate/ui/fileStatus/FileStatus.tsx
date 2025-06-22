@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import styles from './FileStatus.module.css';
-import CrossIcon from '@/assets/icons/cross-ic.svg';
 import SpinIcon from '@/assets/icons/spin-ic.svg';
+import CrossButton from '@/shared/components/buttons/crossButton/CrossButton';
 
 type TFileStatusProps = {
   loading?: boolean;
@@ -35,16 +35,7 @@ const FileStatus: FC<TFileStatusProps> = ({
       >
         {file.name}
       </span>
-      <button
-        className={styles.remove_file_button}
-        onClick={(e) => {
-          e.stopPropagation();
-          onRemove();
-        }}
-        aria-label="Удалить файл"
-      >
-        <img className={styles.cross_icon} src={CrossIcon} alt="Удалить" />
-      </button>
+      <CrossButton onClick={onRemove} />
     </div>
   );
 };

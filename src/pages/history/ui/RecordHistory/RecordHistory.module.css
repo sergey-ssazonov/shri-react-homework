@@ -1,0 +1,61 @@
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.record_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.info_wrap {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  padding: 12px 16px;
+  background-color: #cb81ff;
+  font-size: 18px;
+}
+
+.file_name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+.dimmed {
+  opacity: 0.4;
+}
+
+.delete_btn {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 16px;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.delete_btn:hover {
+  background-color: #e2e2e2;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+}

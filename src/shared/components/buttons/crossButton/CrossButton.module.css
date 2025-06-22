@@ -1,0 +1,16 @@
+.remove_button {
+  border-radius: 10px;
+  background-color: #201b10;
+  font-size: 24px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cross_icon {
+  width: 25px;
+  height: 25px;
+}

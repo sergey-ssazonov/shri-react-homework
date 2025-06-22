@@ -1,12 +1,15 @@
 import { useState, type FC } from 'react';
 import styles from './AggregatePage.module.css';
 import UploadFile from '@/pages/aggregate/ui/uploadFile/UploadFile';
-import Button from '@/shared/components/button/Button';
+import Button from '@/shared/components/buttons/button/Button';
 import { handleAggregate } from '../model/handleAggregate';
-import ResultTable from './resultTable/ResultTable';
+import AggregateDataTable from '@/shared/components/aggregateDataTable/AggregateDataTable';
+import { useAggregateStore } from '../storage/aggregate.store';
 
 const AggregatePage: FC = () => {
   const [uploadFile, setUploadFile] = useState<File | null>(null);
+
+  const { chunks } = useAggregateStore();
 
   const handleSend = async () => {
     if (uploadFile) {
@@ -25,7 +28,7 @@ const AggregatePage: FC = () => {
         Отправить
       </Button>
 
-      <ResultTable />
+      <AggregateDataTable data={chunks} />
     </section>
   );
 };

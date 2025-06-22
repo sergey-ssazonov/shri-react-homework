@@ -1,14 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import './App.css'
-import HistoryPage from './pages/history/HistoryPage';
-import AggregatePage from './pages/aggregate/ui/AggregatePage';
+import { HistoryPage } from './pages/history';
 import GeneratorPage from './pages/generator/ui/GeneratorPage';
 import Layout from './shared/components/layout/Layout';
+import { AggregatePage } from './pages/aggregate';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />, // layout оборачивает все страницы
+    element: <Layout />,
     children: [
       { path: '/', element: <AggregatePage /> },
       { path: '/history', element: <HistoryPage /> },

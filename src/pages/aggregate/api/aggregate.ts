@@ -1,5 +1,3 @@
-// pages/analyst/api/aggregate.ts
-
 import type { TAggregateData } from '@/shared/types/aggregate';
 
 type OnChunkCallback = (chunk: TAggregateData) => void;
@@ -39,9 +37,9 @@ export const aggregateFile = async (
       if (line) {
         try {
           const chunk: TAggregateData = JSON.parse(line);
-          onChunk(chunk); // просто передаём данные
-        } catch {
-          // невалидный JSON — пропускаем
+          onChunk(chunk);
+        } catch (e) {
+          console.error(e);
         }
       }
 

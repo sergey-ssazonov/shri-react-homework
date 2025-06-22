@@ -1,5 +1,5 @@
 import { aggregateFile } from '../api/aggregate';
-import { useAggregateStore } from '../storage/aggregateStore';
+import { useAggregateStore } from '../storage/aggregate.store';
 import { saveToLocalStorage } from '@/shared/utils/localStorage';
 import type { TAggregateData, TAggregateHistoryRecord } from '@/shared/types/aggregate';
 import { AGGREGATE_HISTORY } from '@/shared/constants/localStorage.const';

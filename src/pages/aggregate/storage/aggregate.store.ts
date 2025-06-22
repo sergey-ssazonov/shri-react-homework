@@ -2,9 +2,9 @@ import type { TAggregateData } from '@/shared/types/aggregate';
 import { create } from 'zustand';
 
 type AgregateState = {
-  chunks: TAggregateData[]; // промежуточные результаты
-  isLoading: boolean; // загрузка
-  error: string | null; // ошибка (если есть)
+  chunks: TAggregateData[];
+  isLoading: boolean;
+  error: string | null;
 };
 
 type AgregateActions = {

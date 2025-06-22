@@ -11,3 +11,8 @@
   color: #787878;
   cursor: not-allowed;
 }
+
+.button.black {
+  background-color: #201b10;
+  color: #fff;
+}

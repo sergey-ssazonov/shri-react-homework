@@ -1,7 +1,7 @@
 import { type FC } from 'react';
-import styles from './ResultTable.module.css';
+import styles from './AggregateDataTable.module.css';
 import Cell from './Cell';
-import { useAggregateStore } from '../../storage/aggregateStore';
+import type { TAggregateData } from '@/shared/types/aggregate';
 
 const fieldMap = [
   {
@@ -20,9 +20,15 @@ const fieldMap = [
   },
 ] as const;
 
-const ResultTable: FC = () => {
-  const { chunks } = useAggregateStore();
-  const last = chunks[chunks.length - 1];
+export type TVariantView = 'table' | 'column';
+
+type TAggregateDataTableProps = {
+  data: TAggregateData[];
+  variant?: TVariantView;
+};
+
+const AggregateDataTable: FC<TAggregateDataTableProps> = ({ data, variant = 'table' }) => {
+  const last = data[data.length - 1];
 
   if (!last)
     return (
@@ -36,17 +42,17 @@ const ResultTable: FC = () => {
     );
 
   return (
-    <section className={styles.table_wrap}>
+    <section className={`${styles.table_wrap} ${variant === 'column' ? styles.column : ''}`}>
       {fieldMap.map(({ title, key }) => {
         const rawValue = last[key];
         if (rawValue === undefined || rawValue === null) return null;
 
         const value = typeof rawValue === 'number' ? rawValue.toLocaleString() : String(rawValue);
 
-        return <Cell key={key} title={title} value={value} />;
+        return <Cell variant={variant} key={key} title={title} value={value} />;
       })}
     </section>
   );
 };
 
-export default ResultTable;
+export default AggregateDataTable;

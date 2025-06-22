@@ -1,8 +1,7 @@
-// UploadFile.tsx
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from 'react';
 import styles from './UploadFile.module.css';
 import FileStatus from '../fileStatus/FileStatus';
-import { useAggregateStore } from '../../storage/aggregateStore';
+import { useAggregateStore } from '../../storage/aggregate.store';
 
 type UploadFileProps = {
   onFileUpload: (file: File) => void;
@@ -13,7 +12,7 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
   const [isLocalError, setIsLocalError] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const { reset, error, isLoading } = useAggregateStore();
+  const { reset, error, isLoading, chunks } = useAggregateStore();
 
   const preventDefault = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -79,7 +78,6 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
         type="file"
         ref={inputRef}
         onChange={handleFileInputChange}
-        accept=".csv"
         style={{ display: 'none' }}
       />
       {!file ? (
@@ -99,8 +97,10 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
           : !file
             ? 'или перетащите сюда'
             : isLoading
-              ? 'Файл загружен!'
-              : 'Готово!'}
+              ? 'идёт парсинг файла'
+              : chunks.length > 0
+                ? 'Готово!'
+                : 'Файл загружен!'}
       </p>
     </div>
   );
