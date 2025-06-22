@@ -1,6 +1,6 @@
 import { useState, useRef, type ChangeEvent, type FC, useEffect } from 'react';
 import styles from './UploadFile.module.css';
-import FileStatus from '../fileStatus/FileStatus';
+import FileView from '../../../../shared/components/fileView/FileView';
 import { useAggregateStore } from '../../storage/aggregate.store';
 
 type UploadFileProps = {
@@ -83,7 +83,7 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
       {!file ? (
         <button className={styles.upload_button}>Загрузить файл</button>
       ) : (
-        <FileStatus
+        <FileView
           file={file}
           loading={isLoading}
           onRemove={handleRemoveFile}

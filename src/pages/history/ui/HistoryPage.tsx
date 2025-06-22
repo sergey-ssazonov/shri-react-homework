@@ -48,7 +48,7 @@ const HistoryPage: FC = () => {
             <div className={styles.footer_wrap}>
               <Button
                 onClick={() => {
-                  navigate('/');
+                  navigate('/generator');
                 }}
               >
                 Сгенерировать больше

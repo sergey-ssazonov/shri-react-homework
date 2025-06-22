@@ -1,9 +1,9 @@
 import { type FC } from 'react';
-import styles from './FileStatus.module.css';
+import styles from './FileView.module.css';
 import SpinIcon from '@/assets/icons/spin-ic.svg';
 import CrossButton from '@/shared/components/buttons/crossButton/CrossButton';
 
-type TFileStatusProps = {
+type TFileViewProps = {
   loading?: boolean;
   file: File;
   onRemove: () => void;
@@ -11,7 +11,7 @@ type TFileStatusProps = {
   already?: boolean;
 };
 
-const FileStatus: FC<TFileStatusProps> = ({
+const FileView: FC<TFileViewProps> = ({
   file,
   loading = false,
   onRemove,
@@ -40,4 +40,4 @@ const FileStatus: FC<TFileStatusProps> = ({
   );
 };
 
-export default FileStatus;
+export default FileView;
