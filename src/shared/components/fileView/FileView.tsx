@@ -20,7 +20,7 @@ const FileView: FC<TFileViewProps> = ({
 }) => {
   if (loading) {
     return (
-      <div className={styles.file_loading}>
+      <div data-testid="loader" className={styles.file_loading}>
         <img className={styles.spin_icon} src={SpinIcon} alt="Загрузка" />
       </div>
     );

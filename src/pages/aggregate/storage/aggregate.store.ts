@@ -1,13 +1,13 @@
 import type { TAggregateData } from '@/shared/types/aggregate';
 import { create } from 'zustand';
 
-type AgregateState = {
+ type AgregateState = {
   chunks: TAggregateData[];
   isLoading: boolean;
   error: string | null;
 };
 
-type AgregateActions = {
+export type AgregateActions = {
   addChunk: (chunk: TAggregateData) => void;
   reset: () => void;
   setLoading: (value: boolean) => void;

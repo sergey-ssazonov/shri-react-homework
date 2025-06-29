@@ -63,6 +63,7 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
 
   return (
     <div
+      data-testid="drop-zone"
       className={`${styles.upload_wrap} ${file ? styles.with_file : ''} ${
         showError ? styles.error : ''
       }`}
@@ -75,6 +76,7 @@ const UploadFile: FC<UploadFileProps> = ({ onFileUpload }) => {
       tabIndex={0}
     >
       <input
+        data-testid="upload-input"
         type="file"
         ref={inputRef}
         onChange={handleFileInputChange}
